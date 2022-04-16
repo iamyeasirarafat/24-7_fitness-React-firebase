@@ -1,8 +1,8 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useState } from 'react'
+import { Fragment,  } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import { Link, NavLink } from 'react-router-dom'
+import {  NavLink } from 'react-router-dom'
 import logo from '../../assests/images/logo.svg'
 
 
@@ -30,7 +30,7 @@ function classNames(...classes) {
 }
 
 export default function Example() {
-    const [active, setActive] = useState(false)
+
     return (
         <>
             <div className="min-h-full">
@@ -57,10 +57,7 @@ export default function Example() {
                                                     isActive ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Blog</NavLink>
                                                     <NavLink to='/about' className={({ isActive }) =>
                                                     isActive ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>About</NavLink>
-                                              
-                                                
-
-                                            </div>
+                                              </div>
                                         </div>
                                     </div>
                                     <div className="hidden md:block">
@@ -176,22 +173,7 @@ export default function Example() {
                         </>
                     )}
                 </Disclosure>
-
-                <header className="bg-white shadow">
-                    <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-                    </div>
-                </header>
-                <main>
-                    <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-                        {/* Replace with your content */}
-                        <div className="px-4 py-6 sm:px-0">
-                            <div className="border-4 border-dashed border-gray-200 rounded-lg h-96" />
-                        </div>
-                        {/* /End replace */}
-                    </div>
-                </main>
-            </div>
+             </div>
         </>
     )
 }

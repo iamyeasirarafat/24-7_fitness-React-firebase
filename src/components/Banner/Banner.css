@@ -1,0 +1,8 @@
+.text-stroke  {
+    -webkit-text-stroke-color : white;
+    -webkit-text-stroke-width : 1px;
+}
+.btn-skew{
+    -webkit-transform: skew(-30deg);
+    transform: skew(-30deg);
+}   
