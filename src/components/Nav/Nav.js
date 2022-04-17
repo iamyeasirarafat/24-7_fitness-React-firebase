@@ -4,7 +4,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import logo from '../../assests/images/logo.svg'
 
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import auth from '../../firebase/firebase.init'
 import userImg from '../../assests/images/user.png'
@@ -15,11 +15,12 @@ import { signOut } from 'firebase/auth'
  const Nav = () =>{
     const [user, loading] = useAuthState(auth );
     const [loggedIn, setLoggedIn] = useState({})
+    const navigate = useNavigate()
     useEffect(()=>{
           if(user){
               setLoggedIn(user)
           }
-    } , [user])
+    } , [user]);
     const {photoURL} = loggedIn;
     if (loading) {
         return (
@@ -49,7 +50,7 @@ import { signOut } from 'firebase/auth'
                                 </Disclosure.Button>
                             </div>
                             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                                <div className="flex-shrink-0 flex items-center">
+                                <div onClick={()=>navigate('/')} className="flex-shrink-0 flex items-center">
                                     <img
                                         className="block lg:hidden h-8 w-auto"
                                         src={logo}

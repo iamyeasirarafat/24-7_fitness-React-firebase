@@ -3,36 +3,36 @@ import { LockClosedIcon } from '@heroicons/react/solid'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Social from './Social/Social'
 import logo from '../../assests/images/small-logo.png'
-import { useState } from 'react'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import auth from '../../firebase/firebase.init'
 import { toast } from 'react-toastify'
 
- const Login = ()=> {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const navigate = useNavigate()
-    const location = useLocation()
-    const from = location.state?.from?.pathname || "/";
+const Login = () => {
 
-    const [signInWithEmailAndPassword, user,loading, error,] = useSignInWithEmailAndPassword(auth)
-    const handleSignIn = (e)=>{
-        e.preventDefault()
-        signInWithEmailAndPassword(email, password,)
-        
-    }
-    if(user){
-        navigate(from, { replace: true });
-    }
-    if(loading){
-        toast.warn('Please Wait')
-    }
-    if(error){
-        toast.error(error.message.slice(22))
-    }
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname || "/";
+
+  const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth)
+  const handleSignIn = (e) => {
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    e.preventDefault()
+    signInWithEmailAndPassword(email, password,)
+
+  }
+  if (user) {
+    navigate(from, { replace: true });
+  }
+  if (loading) {
+    toast.warn('Please Wait')
+  }
+  if (error) {
+    toast.error(error.message.slice(22))
+  }
   return (
     <>
-     <div className="min-h-full  flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-full  flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>
             <img
@@ -49,12 +49,13 @@ import { toast } from 'react-toastify'
             </p>
           </div>
           <form className="mt-8 space-y-6" action="#" onSubmit={handleSignIn}>
-           <div className="rounded-md shadow-sm -space-y-px">
+            <div className="rounded-md shadow-sm -space-y-px">
               <div>
                 <label htmlFor="email-address" className="sr-only">
                   Email address
                 </label>
-                <input onBlur={(e)=>setEmail(e.target.value)}
+                <input
+
                   id="email-address"
                   name="email"
                   type="email"
@@ -68,7 +69,8 @@ import { toast } from 'react-toastify'
                 <label htmlFor="password" className="sr-only">
                   Password
                 </label>
-                <input onBlur={(e)=>setPassword(e.target.value)}
+                <input
+
                   id="password"
                   name="password"
                   type="password"
@@ -116,7 +118,7 @@ import { toast } from 'react-toastify'
           </form>
         </div>
       </div>
-    <Social></Social>
+      <Social></Social>
     </>
   )
 }

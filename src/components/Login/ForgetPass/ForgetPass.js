@@ -1,34 +1,35 @@
 
-import { ExternalLinkIcon,  } from '@heroicons/react/solid'
+import { ExternalLinkIcon, } from '@heroicons/react/solid'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from '../../../assests/images/small-logo.png'
-import { useState } from 'react'
+
 
 
 import { toast } from 'react-toastify'
 import auth from '../../../firebase/firebase.init'
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth'
 
- const ForgetPass = ()=> {
-    const [email, setEmail] = useState('')
-    const navigate = useNavigate()
-    const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
-  const handlePassReset = (e)=>{
-      e.preventDefault()
-      sendPasswordResetEmail(email)
+const ForgetPass = () => {
+
+  const navigate = useNavigate()
+  const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
+  const handlePassReset = (e) => {
+    const email = e.target.email.value;
+    e.preventDefault()
+    sendPasswordResetEmail(email)
   }
-if(sending){
+  if (sending) {
     toast.warn('Email sending')
     navigate('/login')
-}
-if(error){
+  }
+  if (error) {
     toast.error(error.message.slice(22))
-}
-    
+  }
+
 
   return (
     <>
-     <div className="min-h-full  flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-full  flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>
             <img
@@ -39,12 +40,13 @@ if(error){
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Enter Your Email Address</h2>
           </div>
           <form className="mt-8 space-y-6" onSubmit={handlePassReset}>
-           <div className="rounded-md shadow-sm -space-y-px">
+            <div className="rounded-md shadow-sm -space-y-px">
               <div>
                 <label htmlFor="email-address" className="sr-only">
                   Email address
                 </label>
-                <input onBlur={(e)=>setEmail(e.target.value)}
+                <input
+
                   id="email-address"
                   name="email"
                   type="email"
@@ -54,7 +56,7 @@ if(error){
                   placeholder="Email address"
                 />
               </div>
-              
+
             </div>
 
             <div className="flex items-center justify-between">
@@ -70,7 +72,7 @@ if(error){
                   Agree with <span className='text-orange-400'>terms and conditions</span>
                 </label>
               </div>
-                </div>
+            </div>
 
             <div>
               <button
@@ -87,7 +89,7 @@ if(error){
           </form>
         </div>
       </div>
-    
+
     </>
   )
 }

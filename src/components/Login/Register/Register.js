@@ -1,6 +1,6 @@
 
-import { FingerPrintIcon,  } from '@heroicons/react/solid'
-import { useState } from 'react'
+import { FingerPrintIcon, } from '@heroicons/react/solid'
+
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
@@ -9,37 +9,40 @@ import Social from '../Social/Social'
 import auth from '../../../firebase/firebase.init';
 import { toast } from 'react-toastify';
 
- const Register = ()=> {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const navigate = useNavigate()
-    const location = useLocation()
-    const from = location.state?.from?.pathname || "/";
+const Register = () => {
 
-    const [createUserWithEmailAndPassword, user,loading, error,] = useCreateUserWithEmailAndPassword(auth ,{sendEmailVerification : true});
-    const handleRegister = (e)=>{
-        e.preventDefault()
-      createUserWithEmailAndPassword(email, password,)
-      }
-    if(user){
-        navigate(from, { replace: true });
-        
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname || "/";
+
+  const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const handleRegister = (e) => {
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    e.preventDefault()
+    createUserWithEmailAndPassword(email, password,)
+  }
+  if (user) {
+    navigate(from, { replace: true });
+
+  }
+  if (loading) {
+    toast.warn('Creating Account')
+  }
+  if (error) {
+    if (error.message.includes('email-already')) {
+      toast.error('Email already in use')
     }
-    if(loading){
-        toast.warn('Creating Account')
+    if (error.message.includes('6 character')) {
+      toast.error('Password Should be longer than 6 character')
     }
-    if(error){
-        if(error.message.includes('email-already')){
-        toast.error('Email already in use')}
-        if(error.message.includes('6 character')){
-        toast.error('Password Should be longer than 6 character')}
-        else{
-        toast.error(error.message.slice(20))
-        }
+    else {
+      toast.error(error.message.slice(20))
     }
+  }
   return (
     <>
-     <div className="min-h-full  flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-full  flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>
             <img
@@ -55,13 +58,14 @@ import { toast } from 'react-toastify';
               </Link>
             </p>
           </div>
-          <form className="mt-8 space-y-6"  onSubmit={handleRegister}>
-           <div className="rounded-md shadow-sm -space-y-px">
+          <form className="mt-8 space-y-6" onSubmit={handleRegister}>
+            <div className="rounded-md shadow-sm -space-y-px">
               <div>
                 <label htmlFor="email-address" className="sr-only">
                   Email address
                 </label>
-                <input onBlur={(e)=>setEmail(e.target.value)}
+                <input
+
                   id="email-address"
                   name="email"
                   type="email"
@@ -75,7 +79,8 @@ import { toast } from 'react-toastify';
                 <label htmlFor="password" className="sr-only">
                   Password
                 </label>
-                <input onBlur={(e)=>setPassword(e.target.value)}
+                <input
+
                   id="password"
                   name="password"
                   type="password"
@@ -101,11 +106,11 @@ import { toast } from 'react-toastify';
                 </label>
               </div>
 
-              
+
             </div>
 
             <div>
-                
+
               <button
                 type="submit"
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -113,14 +118,14 @@ import { toast } from 'react-toastify';
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                   <FingerPrintIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" />
                 </span>
-               Register
+                Register
               </button>
               <p className='text-sm text text-gray-900 mt-2 ' >Already Have an Account? <Link to={'/login'} className='text-orange-400'>Sign In here</Link></p>
             </div>
           </form>
         </div>
       </div>
-    <Social></Social>
+      <Social></Social>
     </>
   )
 }
