@@ -29,7 +29,7 @@ const Services = () => {
             
         },
         {   
-            "id":'1',
+            "id":'3',
             "name": "kids classes",
             'icon': icon3,
             'img': service3,

@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import logo from '../../assests/images/logo.svg'
@@ -14,6 +14,13 @@ import { signOut } from 'firebase/auth'
 
  const Nav = () =>{
     const [user, loading] = useAuthState(auth );
+    const [loggedIn, setLoggedIn] = useState({})
+    useEffect(()=>{
+          if(user){
+              setLoggedIn(user)
+          }
+    } , [user])
+    const {photoURL} = loggedIn;
     if (loading) {
         return (
           <div className='text-center text-black text-sm'>
@@ -21,7 +28,9 @@ import { signOut } from 'firebase/auth'
           </div>
         );
       };
-    const {photoURL} = user;
+   
+      
+     
     return (
         <Disclosure as="nav" className="bg-gray-800">
             {({ open }) => (
@@ -62,6 +71,7 @@ import { signOut } from 'firebase/auth'
                                             isActive ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Blog</NavLink>
                                         <NavLink to='/about' className={({ isActive }) =>
                                             isActive ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>About</NavLink>
+                                            <button onClick={()=>signOut(auth)}>signout</button>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +92,7 @@ import { signOut } from 'firebase/auth'
                                             <span className="sr-only">Open user menu</span>
                                             <img
                                                 className="h-8 w-8 rounded-full"
-                                                src={photoURL? photoURL : userImg}
+                                                src={photoURL ? photoURL : userImg}
                                                 alt="profile pic"
                                             />
                                         </Menu.Button>
@@ -113,7 +123,7 @@ import { signOut } from 'firebase/auth'
                                         </Menu.Items>
                                     </Transition>
                                 </Menu>
-                            </div> : <Link className='text-white font-bold px-5 py-2 bg-gray-700 rounded-lg' to={'/login'}>Login</Link>
+                            </div> : <Link className='text-white hover:bg-gray-100 hover:text-gray-700 font-bold px-5 py-2 bg-gray-700 rounded-lg' to={'/login'}>Login</Link>
                             }
                         </div>
                     </div>
