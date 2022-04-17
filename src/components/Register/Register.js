@@ -1,26 +1,26 @@
 
-import { LockClosedIcon } from '@heroicons/react/solid'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import Social from './Social/Social'
-import logo from '../../assests/images/small-logo.png'
+import { FingerPrintIcon,  } from '@heroicons/react/solid'
 import { useState } from 'react'
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
-import auth from '../../firebase/firebase.init'
-import { toast } from 'react-toastify'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
-export default function Login() {
+import logo from '../../assests/images/small-logo.png'
+import Social from '../Login/Social/Social'
+import auth from '../../firebase/firebase.init';
+import { toast } from 'react-toastify';
+
+export default function Register() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || "/";
 
-    const [signInWithEmailAndPassword, user,loading, error,] = useSignInWithEmailAndPassword(auth)
-    const handleSignIn = (e)=>{
+    const [createUserWithEmailAndPassword, user,loading, error,] = useCreateUserWithEmailAndPassword(auth ,{sendEmailVerification : true});
+    const handleRegister = (e)=>{
         e.preventDefault()
-        signInWithEmailAndPassword(email, password,)
-        
-    }
+      createUserWithEmailAndPassword(email, password,)
+      }
     if(user){
         navigate(from, { replace: true });
         toast.success('Account Successfully Created')
@@ -29,7 +29,13 @@ export default function Login() {
         toast.warn('Creating Account')
     }
     if(error){
-        toast.error(error.message.slice(22))
+        if(error.message.includes('email-already')){
+        toast.error('Email already in use')}
+        if(error.message.includes('6 character')){
+        toast.error('Password Should be longer than 6 character')}
+        else{
+        toast.error(error.message.slice(20))
+        }
     }
   return (
     <>
@@ -41,7 +47,7 @@ export default function Login() {
               src={logo}
               alt="logo"
             />
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
+            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Register With your Email</h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               Or{'  '}
               <Link to="/" className="font-medium text-indigo-600 hover:text-indigo-500">
@@ -49,13 +55,13 @@ export default function Login() {
               </Link>
             </p>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          <form className="mt-8 space-y-6"  onSubmit={handleRegister}>
            <div className="rounded-md shadow-sm -space-y-px">
               <div>
                 <label htmlFor="email-address" className="sr-only">
                   Email address
                 </label>
-                <input
+                <input onBlur={(e)=>setEmail(e.target.value)}
                   id="email-address"
                   name="email"
                   type="email"
@@ -69,7 +75,7 @@ export default function Login() {
                 <label htmlFor="password" className="sr-only">
                   Password
                 </label>
-                <input
+                <input onBlur={(e)=>setPassword(e.target.value)}
                   id="password"
                   name="password"
                   type="password"
@@ -95,24 +101,21 @@ export default function Login() {
                 </label>
               </div>
 
-              <div className="text-sm">
-                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                  Forgot your password?
-                </a>
-              </div>
+              
             </div>
 
             <div>
+                
               <button
                 type="submit"
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                  <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" />
+                  <FingerPrintIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" />
                 </span>
-                Sign in
+               Register
               </button>
-              <p className='text-sm text text-gray-900 mt-2 ' >Are you new? <Link to={'/register'} className='text-orange-400'>Register Here</Link></p>
+              <p className='text-sm text text-gray-900 mt-2 ' >Already Have an Account? <Link to={'/login'} className='text-orange-400'>Sign In here</Link></p>
             </div>
           </form>
         </div>
