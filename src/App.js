@@ -7,12 +7,12 @@ import Register from "./components/Login/Register/Register";
 import ForgetPass from "./components/Login/ForgetPass/ForgetPass";
 import ProtectedPage from "./components/ProtectedPage/ProtectedPage";
 import Checkout from "./components/Checkout/Checkout";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <div>
      <Nav></Nav>
-     
      <Routes>
        <Route path="/" element={<Home></Home>}></Route>
        <Route path="home" element={<Home></Home>}></Route>
@@ -21,6 +21,7 @@ function App() {
        <Route path ='forgetpassword' element={<ForgetPass></ForgetPass>}/>
        <Route path = 'register' element={<Register></Register>}/>
      </Routes>
+     <Footer></Footer>
     </div>
   );
 }
