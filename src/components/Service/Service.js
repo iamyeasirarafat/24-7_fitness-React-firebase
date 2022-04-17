@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Service = ({service}) => {
    
@@ -11,7 +12,7 @@ const Service = ({service}) => {
           <div className="absolute top-10 text-white ml-6">
           <div className="flex ">
           <img className='h-16 rounded-full' src={icon} alt="" /> 
-          <a className='uppercase right-6 btn-skew absolute duration-300 hover:bg-yellow-500 bg-yellow-400 text-blue-700 font-bold py-3 px-6' href="#service">Checkout</a>
+          <Link className='uppercase right-6 btn-skew absolute duration-300 hover:bg-yellow-500 bg-yellow-400 text-blue-700 font-bold py-3 px-6' to="checkout">Checkout</Link>
           </div>
            <h2 className='text-3xl font-semibold tracking-wider mt-4 '>{name}</h2>
            <h3 className='text-2xl font-semibold tracking-wider mb-2 '> price: {price}$</h3>

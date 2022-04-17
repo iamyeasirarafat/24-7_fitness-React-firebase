@@ -65,7 +65,7 @@ import { signOut } from 'firebase/auth'
                                     <div className="ml-10 flex text-gray-300 font-medium items-baseline space-x-4">
                                         <NavLink to='/' className={({ isActive }) =>
                                             isActive ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Home</NavLink>
-                                        <NavLink to='/service' className={({ isActive }) =>
+                                        <NavLink to='/services' className={({ isActive }) =>
                                             isActive ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Services</NavLink>
                                         <NavLink to='/blog' className={({ isActive }) =>
                                             isActive ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Blog</NavLink>
