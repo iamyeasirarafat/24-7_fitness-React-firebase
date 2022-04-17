@@ -1,8 +1,10 @@
 import React from 'react';
 import recentWork from '../../assests/images/recent.jpg'
 const Footer = () => {
+    const date = new Date();
+    const year = date.getFullYear()
     return (
-        <footer className='h-auto md:h-[550px] bg-slate-50 mt-20 pt-10 pl-10 md:pl-0 md:pt-32 shadow-lg'>
+        <footer className='h-auto bg-slate-50 mt-20 pt-10 pl-10 md:pl-0  shadow-lg'>
             <div className="md:grid md:grid-cols-3 w-11/12 mx-auto ">
                 <div className="mt-10 mx-auto">
                     <h2 className='text-gray-600 mb-3 text-2xl '>Subscribe Us</h2>
@@ -41,6 +43,14 @@ const Footer = () => {
                     <h2 className='text-gray-600 mb-3 text-2xl '>Recent Work</h2>
                     <img className='' src={recentWork} alt="works" />
                 </div>
+            </div>
+            <div className=" flex justify-between w-10/12 text-gray-600 border-t-2 py-8 mt-8 mx-auto">
+                <p>©Copyright {year} <span className='text-blue-600'>247 Fitness |</span> All Rights Reserved</p>
+                <ul className='flex'>
+                    <li className='mr-3 duration-300 hover:text-blue-500 '>{'Terms & Conditions'}</li>
+                    <li className='mr-3 duration-300 hover:text-blue-500 '>API Use Policy</li>
+                    <li className='mr-3 duration-300 hover:text-blue-500 '>Privacy Policy</li>
+                </ul>
             </div>
         </footer>
     );
