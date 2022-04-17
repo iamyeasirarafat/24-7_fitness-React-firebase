@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Service = ({service}) => {
-    console.log(service);
+   
     const {name, icon,img,description,price}=service
     return (
-        <div className='service h-80 relative   '>
+        <div className='service h-80 mb-4 relative   '>
           <div className="">
                 <img className=' rounded-md h-80' src={img} alt="" />
           </div>
