@@ -44,8 +44,8 @@ const Footer = () => {
                     <img className='' src={recentWork} alt="works" />
                 </div>
             </div>
-            <div className=" flex justify-between w-10/12 text-gray-600 border-t-2 py-8 mt-8 mx-auto">
-                <p>©Copyright {year} <span className='text-blue-600'>247 Fitness |</span> All Rights Reserved</p>
+            <div className=" md:flex justify-between w-10/12 text-gray-600 border-t-2 py-8 mt-8 mx-auto">
+                <p>©Copyright {year} <span className='text-blue-600 mb-2'>247 Fitness |</span> All Rights Reserved</p>
                 <ul className='flex'>
                     <li className='mr-3 duration-300 hover:text-blue-500 '>{'Terms & Conditions'}</li>
                     <li className='mr-3 duration-300 hover:text-blue-500 '>API Use Policy</li>

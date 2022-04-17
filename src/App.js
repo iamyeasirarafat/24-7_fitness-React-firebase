@@ -8,6 +8,7 @@ import ForgetPass from "./components/Login/ForgetPass/ForgetPass";
 import ProtectedPage from "./components/ProtectedPage/ProtectedPage";
 import Checkout from "./components/Checkout/Checkout";
 import Footer from "./components/Footer/Footer";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
        <Route path = 'login' element={<Login></Login>}/>
        <Route path ='forgetpassword' element={<ForgetPass></ForgetPass>}/>
        <Route path = 'register' element={<Register></Register>}/>
+       <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
      </Routes>
      <Footer></Footer>
     </div>
