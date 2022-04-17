@@ -15,7 +15,7 @@ function classNames(...classes) {
 }
 
 export default function Nav() {
-    const [user, loading, error] = useAuthState(auth );
+    const [user, loading] = useAuthState(auth );
     if (loading) {
         return (
           <div className='text-center text-black text-sm'>

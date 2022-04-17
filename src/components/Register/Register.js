@@ -23,7 +23,7 @@ export default function Register() {
       }
     if(user){
         navigate(from, { replace: true });
-        toast.success('Account Successfully Created')
+        
     }
     if(loading){
         toast.warn('Creating Account')
@@ -91,7 +91,7 @@ export default function Register() {
               <div className="flex items-center">
                 <input
                   id="remember-me"
-                  name="remember-me"
+                  name="terms-and-condition"
                   type="checkbox"
                   required
                   className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"

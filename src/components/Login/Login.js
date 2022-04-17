@@ -23,10 +23,9 @@ export default function Login() {
     }
     if(user){
         navigate(from, { replace: true });
-        toast.success('Account Successfully Created')
     }
     if(loading){
-        toast.warn('Creating Account')
+        toast.warn('Please Wait')
     }
     if(error){
         toast.error(error.message.slice(22))
@@ -49,13 +48,13 @@ export default function Login() {
               </Link>
             </p>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          <form className="mt-8 space-y-6" action="#" onSubmit={handleSignIn}>
            <div className="rounded-md shadow-sm -space-y-px">
               <div>
                 <label htmlFor="email-address" className="sr-only">
                   Email address
                 </label>
-                <input
+                <input onBlur={(e)=>setEmail(e.target.value)}
                   id="email-address"
                   name="email"
                   type="email"
@@ -69,7 +68,7 @@ export default function Login() {
                 <label htmlFor="password" className="sr-only">
                   Password
                 </label>
-                <input
+                <input onBlur={(e)=>setPassword(e.target.value)}
                   id="password"
                   name="password"
                   type="password"
@@ -85,7 +84,7 @@ export default function Login() {
               <div className="flex items-center">
                 <input
                   id="remember-me"
-                  name="remember-me"
+                  name="Terms-and-condition"
                   type="checkbox"
                   required
                   className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
@@ -96,9 +95,9 @@ export default function Login() {
               </div>
 
               <div className="text-sm">
-                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                <Link to="/forgot-password" className="font-medium text-indigo-600 hover:text-indigo-500">
                   Forgot your password?
-                </a>
+                </Link>
               </div>
             </div>
 
