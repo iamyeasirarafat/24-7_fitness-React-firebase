@@ -8,7 +8,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import auth from '../../firebase/firebase.init'
 import { toast } from 'react-toastify'
 
-export default function Login() {
+ const Login = ()=> {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
@@ -120,3 +120,4 @@ export default function Login() {
     </>
   )
 }
+export default Login;

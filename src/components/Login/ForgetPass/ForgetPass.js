@@ -1,5 +1,5 @@
 
-import { ExternalLinkIcon, LockClosedIcon } from '@heroicons/react/solid'
+import { ExternalLinkIcon,  } from '@heroicons/react/solid'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from '../../../assests/images/small-logo.png'
 import { useState } from 'react'
@@ -9,7 +9,7 @@ import { toast } from 'react-toastify'
 import auth from '../../../firebase/firebase.init'
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth'
 
-export default function ForgetPass() {
+ const ForgetPass = ()=> {
     const [email, setEmail] = useState('')
     const navigate = useNavigate()
     const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
@@ -91,3 +91,4 @@ if(error){
     </>
   )
 }
+export default ForgetPass;

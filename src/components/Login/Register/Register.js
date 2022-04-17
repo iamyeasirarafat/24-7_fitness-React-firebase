@@ -9,7 +9,7 @@ import Social from '../Social/Social'
 import auth from '../../../firebase/firebase.init';
 import { toast } from 'react-toastify';
 
-export default function Register() {
+ const Register = ()=> {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
@@ -124,3 +124,4 @@ export default function Register() {
     </>
   )
 }
+export default Register;
