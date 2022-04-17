@@ -4,9 +4,9 @@ import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
-import logo from '../../assests/images/small-logo.png'
-import Social from '../Login/Social/Social'
-import auth from '../../firebase/firebase.init';
+import logo from '../../../assests/images/small-logo.png'
+import Social from '../Social/Social'
+import auth from '../../../firebase/firebase.init';
 import { toast } from 'react-toastify';
 
 export default function Register() {
