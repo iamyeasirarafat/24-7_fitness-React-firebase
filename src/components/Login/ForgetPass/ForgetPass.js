@@ -3,11 +3,9 @@ import { ExternalLinkIcon, } from '@heroicons/react/solid'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from '../../../assests/images/small-logo.png'
 
-
-
-import { toast } from 'react-toastify'
 import auth from '../../../firebase/firebase.init'
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth'
+import toast from 'react-hot-toast'
 
 const ForgetPass = () => {
 
@@ -19,13 +17,12 @@ const ForgetPass = () => {
     sendPasswordResetEmail(email)
   }
   if (sending) {
-    toast.warn('Email sending')
-    navigate('/login')
+    toast.success('Email is being Sent', {id:'forgetPassSending'})
   }
   if (error) {
-    toast.error(error.message.slice(22))
+    toast.error(error.message.slice(22), {id:'forgetPassError'})
   }
-
+  
 
   return (
     <>
@@ -58,23 +55,7 @@ const ForgetPass = () => {
               </div>
 
             </div>
-
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="Terms-and-condition"
-                  type="checkbox"
-                  required
-                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                />
-                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                  Agree with <span className='text-orange-400'>terms and conditions</span>
-                </label>
-              </div>
-            </div>
-
-            <div>
+              <div>
               <button
                 type="submit"
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

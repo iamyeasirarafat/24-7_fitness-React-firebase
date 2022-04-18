@@ -4,8 +4,8 @@ import {useSignInWithGoogle, useSignInWithFacebook, useSignInWithGithub} from 'r
 import { faFacebookF, faGoogle, faGithub } from '@fortawesome/free-brands-svg-icons'
 import auth from '../../../firebase/firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import toast from 'react-hot-toast';
+
 const Social = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth)
@@ -17,7 +17,7 @@ const Social = () => {
         navigate(from, { replace: true });
     }
     if(googleError || githubError || facebookError){
-       toast.error(`${googleError? googleError.message.slice(22,) : ''} ${githubError? githubError.message.slice(22) : ''} ${facebookError? facebookError.message.slice(22) : ''} `)
+       toast.error(`${googleError? googleError.message.slice(22,) : ''} ${githubError? githubError.message.slice(22) : ''} ${facebookError? facebookError.message.slice(22) : ''} `, {id:'loginError'})
     } 
     
     return (
@@ -28,7 +28,6 @@ const Social = () => {
             <button onClick={()=>signInWithFacebook()} className=' py-2 px-3 duration-500 border-2 text-2xl rounded-md hover:text-white hover:bg-slate-500'><FontAwesomeIcon icon={faFacebookF} /></button>
             <button onClick={()=>signInWithGithub()} className=' py-2 px-3 duration-500 border-2 text-2xl rounded-md hover:text-white hover:bg-slate-500'><FontAwesomeIcon icon={faGithub} /></button>
         </div>
-        <ToastContainer />
        </>
     );
 };

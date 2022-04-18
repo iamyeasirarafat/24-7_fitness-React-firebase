@@ -5,7 +5,8 @@ import Social from './Social/Social'
 import logo from '../../assests/images/small-logo.png'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import auth from '../../firebase/firebase.init'
-import { toast } from 'react-toastify'
+import toast from 'react-hot-toast'
+
 
 const Login = () => {
 
@@ -25,10 +26,10 @@ const Login = () => {
     navigate(from, { replace: true });
   }
   if (loading) {
-    toast.warn('Please Wait')
+    toast.success('Please Wait', {id:'loginLoading'})
   }
   if (error) {
-    toast.error(error.message.slice(22))
+    toast.error(error.message.slice(22), {id:'logingError'})
   }
   return (
     <>

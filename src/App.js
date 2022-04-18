@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Nav from "./components/Nav/Nav";
@@ -10,10 +9,12 @@ import Checkout from "./components/Checkout/Checkout";
 import Footer from "./components/Footer/Footer";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 import Blogs from "./components/Blogs/Blogs";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <div>
+      <div><Toaster/></div>
      <Nav></Nav>
      <Routes>
        <Route path="/" element={<Home></Home>}></Route>

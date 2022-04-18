@@ -7,7 +7,8 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import logo from '../../../assests/images/small-logo.png'
 import Social from '../Social/Social'
 import auth from '../../../firebase/firebase.init';
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
+
 
 const Register = () => {
 
@@ -27,17 +28,17 @@ const Register = () => {
 
   }
   if (loading) {
-    toast.warn('Creating Account')
+    toast.success('Creating Account', {id:'registerLoading'})
   }
   if (error) {
-    if (error.message.includes('email-already')) {
-      toast.error('Email already in use')
+    if (error.message.includes('email-already-in-use')) {
+      toast.error('Email already in use', {id:'registerError'})
     }
     if (error.message.includes('6 character')) {
-      toast.error('Password Should be longer than 6 character')
+      toast.error('Password Should be longer than 6 character', {id:'registerError'})
     }
     else {
-      toast.error(error.message.slice(20))
+      toast.error(error.message.slice(22), {id:'registerError'})
     }
   }
   return (
