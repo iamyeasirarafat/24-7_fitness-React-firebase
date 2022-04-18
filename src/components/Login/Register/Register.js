@@ -24,6 +24,7 @@ const Register = () => {
     createUserWithEmailAndPassword(email, password,)
   }
   if (user) {
+    toast.success('Account Successfully Created!', {id:'registerCreated'})
     navigate(from, { replace: true });
 
   }

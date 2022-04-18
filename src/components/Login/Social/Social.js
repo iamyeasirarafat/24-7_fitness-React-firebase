@@ -14,6 +14,7 @@ const Social = () => {
     const location = useLocation()
     const from = location.state?.from?.pathname || "/";
     if(googleUser || githubUser || facebookUser){
+        toast.success('Logged In successful', {id:'SocialCreated'})
         navigate(from, { replace: true });
     }
     if(googleError || githubError || facebookError){

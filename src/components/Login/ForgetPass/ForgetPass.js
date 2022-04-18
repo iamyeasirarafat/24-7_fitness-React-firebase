@@ -1,6 +1,6 @@
 
 import { ExternalLinkIcon, } from '@heroicons/react/solid'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import logo from '../../../assests/images/small-logo.png'
 
 import auth from '../../../firebase/firebase.init'
@@ -9,7 +9,7 @@ import toast from 'react-hot-toast'
 
 const ForgetPass = () => {
 
-  const navigate = useNavigate()
+
   const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
   const handlePassReset = (e) => {
     const email = e.target.email.value;
