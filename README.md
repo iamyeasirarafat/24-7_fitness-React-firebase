@@ -16,4 +16,7 @@ You can run run project at [Live site](https://fitness-5402c.web.app/)
 - there is a checkout section that is `private route` you have to log in to see that.
 - This site is fully `responsive` you can use it on your mobile also
 - By clicking your `profile icon` you can see your `Profile information and update your information` and there is `sign out` button also.
-- there is a funny `404` page that you can check
+     - i have tried a lot to update user phone number but i failled but its properly working on name. I will try after submitting this project for sure.
+- There is a `advance feature of email varification`. if your email is not varifyed then there will be a `toast in user profile` section but if your email is being varifyed it will not come again. 
+- if you lost your varification link then `you can resend your varification link  on user setting section`
+- there is a funny `404` page that you can check.

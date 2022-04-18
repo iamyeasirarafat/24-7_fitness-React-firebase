@@ -12,6 +12,7 @@ import Blogs from "./components/Blogs/Blogs";
 import { Toaster } from "react-hot-toast";
 import AboutME from "./components/AboutMe/AboutME";
 import UserInformation from "./components/UserInformation/UserInformation";
+import UserSetting from "./components/UserSetting/UserSetting";
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
        <Route path='blogs' element={<Blogs></Blogs>}/>
        <Route path='about' element={<AboutME></AboutME>}></Route>
        <Route path ='userdetails' element={<UserInformation></UserInformation>}/>
-       <Route path = '/checkout' element={<ProtectedPage><Checkout></Checkout></ProtectedPage>}/>
+       <Route path ="usersetting" element={<UserSetting></UserSetting>}></Route>
+       <Route path = 'checkout' element={<ProtectedPage><Checkout></Checkout></ProtectedPage>}/>
        <Route path = 'login' element={<Login></Login>}/>
        <Route path ='forgetpassword' element={<ForgetPass></ForgetPass>}/>
        <Route path = 'register' element={<Register></Register>}/>

@@ -5,7 +5,6 @@ import userimg from '../../assests/images/user.png'
 import toast from 'react-hot-toast'
 const UserInformation = ()=> {
     const [user, loading] = useAuthState(auth );
-
     const navigate = useNavigate()
     if (loading) {
         return (
@@ -17,8 +16,7 @@ const UserInformation = ()=> {
 
     const {photoURL, displayName,email,phoneNumber,providerId } = user?.providerData[0];
     const {emailVerified} = user;
-    
-    if(!emailVerified){
+   if(!emailVerified){
         toast('please Varify your email address', {id:'userEmailVarify'})
     } 
      return (
@@ -35,7 +33,7 @@ const UserInformation = ()=> {
           </div>
           <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-500">Full name</dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{displayName? displayName : 'please Update your name'}</dd>
+            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{displayName? displayName : 'Please Update your name'}</dd>
           </div>
           <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-500">Sign in method</dt>
@@ -47,7 +45,7 @@ const UserInformation = ()=> {
           </div>
           <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-500">Phone Number</dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{phoneNumber? phoneNumber: 'Please update your Profile'}</dd>
+            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{phoneNumber? phoneNumber: 'Please update your Number'}</dd>
           </div>
         </dl>
       </div>

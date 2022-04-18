@@ -25,6 +25,7 @@ const Register = () => {
   }
   if (user) {
     toast.success('Account Successfully Created!', {id:'registerCreated'})
+    toast.success('Email varification link has been sent to your email, please varify your email', {id:'registerEmailVarification'})
     navigate(from, { replace: true });
 
   }
