@@ -66,7 +66,7 @@ import { signOut } from 'firebase/auth'
                                     <div className="ml-10 flex text-gray-300 font-medium items-baseline space-x-4">
                                         <NavLink to='/' className={({ isActive }) =>
                                             isActive ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Home</NavLink>
-                                        <NavLink to='/home/#services' className={({ isActive }) =>
+                                        <NavLink to='/#services' className={({ isActive }) =>
                                             isActive ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Services</NavLink>
                                         <NavLink to='/blogs' className={({ isActive }) =>
                                             isActive ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Blog</NavLink>
@@ -133,7 +133,7 @@ import { signOut } from 'firebase/auth'
                         <div className="px-2 pt-2 pb-3 space-y-1">
                             <NavLink to='/' className={({ isActive }) =>
                                 isActive ? 'bg-gray-900  px-3 py-2 text-white block rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 text-white block py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Home</NavLink>
-                            <NavLink to='home/#services' className={({ isActive }) =>
+                            <NavLink to='/#services' className={({ isActive }) =>
                                 isActive ? 'bg-gray-900  px-3 py-2 text-white block  rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 text-white block  py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Services</NavLink>
                             <NavLink to='/blogs' className={({ isActive }) =>
                                 isActive ? 'bg-gray-900  px-3 py-2 text-white  block rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 text-white  block py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Blog</NavLink>
