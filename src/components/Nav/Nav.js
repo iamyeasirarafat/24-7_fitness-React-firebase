@@ -66,13 +66,13 @@ import { signOut } from 'firebase/auth'
                                     <div className="ml-10 flex text-gray-300 font-medium items-baseline space-x-4">
                                         <NavLink to='/' className={({ isActive }) =>
                                             isActive ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Home</NavLink>
-                                        <NavLink to='/#services' className={({ isActive }) =>
-                                            isActive ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Services</NavLink>
+                                        {/* <NavLink to='/#services' className={({ isActive }) =>
+                                            isActive ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Services</NavLink> */}
                                         <NavLink to='/blogs' className={({ isActive }) =>
                                             isActive ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Blog</NavLink>
                                         <NavLink to='/about' className={({ isActive }) =>
                                             isActive ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>About</NavLink>
-                                            <button onClick={()=>signOut(auth)}>signout</button>
+                                          
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@ import { signOut } from 'firebase/auth'
                                         <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                                           
                                            <Menu.Item>
-                                           <NavLink to='/' className={({ isActive }) =>
+                                           <NavLink to='/profileData' className={({ isActive }) =>
                                             isActive ? 'bg-gray-100  block px-4 py-2 text-sm text-gray-700' : 'hover:bg-gray-100 block px-4 py-2 text-sm text-gray-700' }>Your Profile</NavLink>
                                            </Menu.Item>
                                            <Menu.Item>
@@ -133,8 +133,8 @@ import { signOut } from 'firebase/auth'
                         <div className="px-2 pt-2 pb-3 space-y-1">
                             <NavLink to='/' className={({ isActive }) =>
                                 isActive ? 'bg-gray-900  px-3 py-2 text-white block rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 text-white block py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Home</NavLink>
-                            <NavLink to='/#services' className={({ isActive }) =>
-                                isActive ? 'bg-gray-900  px-3 py-2 text-white block  rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 text-white block  py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Services</NavLink>
+                            {/* <NavLink to='/#services' className={({ isActive }) =>
+                                isActive ? 'bg-gray-900  px-3 py-2 text-white block  rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 text-white block  py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Services</NavLink> */}
                             <NavLink to='/blogs' className={({ isActive }) =>
                                 isActive ? 'bg-gray-900  px-3 py-2 text-white  block rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in' : 'px-3 text-white  block py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white duration-300 ease-in'}>Blog</NavLink>
                             <NavLink to='/about' className={({ isActive }) =>

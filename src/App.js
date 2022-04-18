@@ -11,6 +11,7 @@ import PageNotFound from "./components/PageNotFound/PageNotFound";
 import Blogs from "./components/Blogs/Blogs";
 import { Toaster } from "react-hot-toast";
 import AboutME from "./components/AboutMe/AboutME";
+import UserInformation from "./components/UserInformation/UserInformation";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
        <Route path="home" element={<Home></Home>}></Route>
        <Route path='blogs' element={<Blogs></Blogs>}/>
        <Route path='about' element={<AboutME></AboutME>}></Route>
+       <Route path ='profileData' element={<UserInformation></UserInformation>}/>
        <Route path = '/checkout' element={<ProtectedPage><Checkout></Checkout></ProtectedPage>}/>
        <Route path = 'login' element={<Login></Login>}/>
        <Route path ='forgetpassword' element={<ForgetPass></ForgetPass>}/>
