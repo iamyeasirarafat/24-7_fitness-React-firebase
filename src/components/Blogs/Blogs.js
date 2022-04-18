@@ -6,11 +6,11 @@ const Blogs = () => {
     return (
         <div className="">
             <h2 className="text-5xl font-semibold text-center my-9 uppercase text-blue-500">Welcome to my <span className="text-pink-400">Blogs</span></h2>
-            <div className="md:flex md:w-3/4  mx-auto">
-            <div className="md:w-2/5  md:mr-20 mt-16 md:mb-28">
+        <div className="lg:flex lg:w-3/4 w-11/12 mx-auto">
+            <div className="lg:w-2/5  lg:mr-20 mt-16 lg:mb-28">
                 <img className="w-11/12 m-auto rounded-lg" src={authentication}alt="" />
             </div>
-            <div className="md:w-3/5 mx-5 mt-10">
+            <div className="lg:w-3/5 mx-5 mt-10">
                 <h3 className="text-3xl font-semibold text-blue-800">What is the defference between <span className="text-pink-400">Authentication and Authorization</span>?</h3>
                 <p className="ml-10 my-3 text-blue-400"><small>Posted By: Yeasir Arafat</small></p>
                 <p className="text-blue-600">
@@ -19,11 +19,11 @@ const Blogs = () => {
                 
             </div>
         </div>
-        <div className="md:flex md:w-3/4  mx-auto">
-            <div className="md:w-2/5  md:mr-20 mt-16 md:mb-28">
+        <div className="lg:flex lg:w-3/4 w-11/12 mx-auto">
+            <div className="lg:w-2/5  lg:mr-20 mt-16 lg:mb-28">
                 <img className="w-full m-auto rounded-lg" src={firebase}alt="" />
             </div>
-            <div className="md:w-3/5 mx-5 mt-10">
+            <div className="lg:w-3/5 mx-5 mt-10">
                 <h3 className="text-3xl font-semibold text-blue-800">Why we use  <span className="text-pink-400">Firebase?</span> The alternative of firebase.</h3>
                 <p className="ml-10 my-3 text-blue-400"><small>Posted By: Yeasir Arafat</small></p>
                 <p className="text-blue-600">
@@ -33,11 +33,11 @@ const Blogs = () => {
                 
             </div>
         </div>
-        <div className="md:flex md:w-3/4  mx-auto">
-            <div className="md:w-2/5  md:mr-20 mt-16 md:mb-28">
+        <div className="lg:flex lg:w-3/4 w-11/12 mx-auto">
+            <div className="lg:w-2/5  lg:mr-20 mt-16 lg:mb-28">
                 <img className="w-full  m-auto rounded-lg" src={firebaseServices}alt="" />
             </div>
-            <div className="md:w-3/5 mx-5 mt-10">
+            <div className="lg:w-3/5 mx-5 mt-10">
                 <h3 className="text-3xl font-semibold text-blue-800">Other Services of  <span className="text-pink-400">Firebase.</span></h3>
                 <p className="ml-10 my-3 text-blue-400"><small>Posted By: Yeasir Arafat</small></p>
                 <p className="text-blue-600">

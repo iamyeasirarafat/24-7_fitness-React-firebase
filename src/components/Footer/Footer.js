@@ -5,7 +5,7 @@ const Footer = () => {
     const year = date.getFullYear()
     return (
         <footer className='h-auto bg-slate-50 mt-20 pt-10 pl-10 md:pl-0  shadow-lg'>
-            <div className="md:grid md:grid-cols-3 w-11/12 mx-auto ">
+            <div className="md:grid md:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto ">
                 <div className="mt-10 mx-auto">
                     <h2 className='text-gray-600 mb-3 text-2xl '>Subscribe Us</h2>
                     <p className='text-gray-400 w-64 text-sm mb-4'> Sign up to our newsletter to get the latest news and offers</p>
